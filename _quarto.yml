@@ -3,8 +3,9 @@ project:
   output-dir: "."
 
 website:
-  title: "YOUR NAME"
+  title: "Kenzie Perkins"
   navbar:
+    # background: "#006600"
     pinned: true
     left:
       - text: Project
@@ -13,7 +14,7 @@ website:
         href: blog-listing.qmd
             
   page-footer: 
-    center: "Powered with GitHub and Quarto<br>© YOUR NAME, 2023"
+    center: "Powered with GitHub and Quarto<br>© Kenzie Perkins, 2024"
 
 format:
   html:
@@ -25,4 +26,3 @@ format:
     css: styles.css
     toc: false
     include-after-body: target_blank.html
-    

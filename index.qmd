@@ -1,5 +1,5 @@
 ---
-title: "YOUR NAME" 
+title: "Kenzie Perkins" 
 about:
   template: trestles  # jolla  trestles  solana  marquee  broadside
   image: img/profile.png
@@ -21,21 +21,20 @@ about:
       href: https://GITHUB_USERNAME.github.io/resume-example.pdf
     - icon: mailbox
       text: Email
-      href: mailto:YOUR_EMAIL@geneseo.edu
+      href: mailto:kmp45@geneseo.edu
 
 ---
 
 
-Finley Malloc majors in Data Analytics at SUNY Geneseo. When not working on data analytics, Finley enjoys spending time unicycling and playing with her pet iguana.
+My name is Kenzie Perkins. I am currently studying in accounting here at SUNY Geneseo. When I have free time I enjoy hanging out with my family, and traveling to new and different places!
 
 ## Education
 
-State University of New York at Geneseo | Geneseo, NY <br>
-B.S. in Data Analytics | Aug 2022 - May 2026 <br>
-Minor in Business Administration 
+Graduate of Corning Community College|Associate's Degree in Accounting.
+Currently Studying at SUNY Geneseo|Studying for Bachelor's Degree in Accounting.
 
 ## Experience
 
-Starbucks Analytics | Data Analyst Intern | May 2024 - Aug 2024
+Previous Payroll Specialist at Upstate Payroll Services LLC. 
 
 

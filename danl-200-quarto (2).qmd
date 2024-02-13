@@ -1,0 +1,62 @@
+---
+title: DANL Project 
+subtitle: "DANL 200: Introduction to Data Analytics"
+author: 
+  - name: Kenzie Perkins
+date: last-modified
+
+execute: 
+  echo: true    # true false
+  eval: true    # true false
+  warning: false    # true false
+  message: false    # true false
+  fig-width: 9
+  # fig-height: 5
+  
+format: 
+  html:
+    toc: true    # true false
+    number-sections: true    # true false
+    code-fold: show    # true false show       # https://quarto.org/docs/output-formats/html-code.html
+    code-tools: true    # true false
+    highlight-style: atom-one        # atom-one tango espresso   # https://quarto.org/docs/output-formats/html-code.html#highlighting
+---
+
+
+```{r setup}
+#| include: false
+library(tidyverse)
+library(hrbrthemes)
+library(skimr)
+library(DT)
+
+```
+
+# Auto-completion
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+fare <- "10.00"
+tip <- "2.00"
+tax <- "0.80"
+```
+
+
+str_c("the total trip cost is: $")
+
+
+```{r}
+x <- c(1, 2, 3, 4, 5)
+
+sum(x)
+mean(x)
+sd(x)
+```
+```{r}
+c(c(), 1, NULL)
+c("a", NA, "c")
+```
+

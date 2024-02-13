@@ -23,23 +23,23 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "YOUR NAME",
+    "title": "Kenzie Perkins",
     "section": "",
-    "text": "Finley Malloc majors in Data Analytics at SUNY Geneseo. When not working on data analytics, Finley enjoys spending time unicycling and playing with her pet iguana."
+    "text": "My name is Kenzie Perkins. I am currently studying in accounting here at SUNY Geneseo. When I have free time I enjoy hanging out with my family, and traveling to new and different places!"
   },
   {
     "objectID": "index.html#education",
     "href": "index.html#education",
-    "title": "YOUR NAME",
+    "title": "Kenzie Perkins",
     "section": "Education",
-    "text": "Education\nState University of New York at Geneseo | Geneseo, NY  B.S. in Data Analytics | Aug 2022 - May 2026  Minor in Business Administration"
+    "text": "Education\nGraduate of Corning Community College|Associate’s Degree in Accounting. Currently Studying at SUNY Geneseo|Studying for Bachelor’s Degree in Accounting."
   },
   {
     "objectID": "index.html#experience",
     "href": "index.html#experience",
-    "title": "YOUR NAME",
+    "title": "Kenzie Perkins",
     "section": "Experience",
-    "text": "Experience\nStarbucks Analytics | Data Analyst Intern | May 2024 - Aug 2024"
+    "text": "Experience\nPrevious Payroll Specialist at Upstate Payroll Services LLC."
   },
   {
     "objectID": "posts/welcome/index.html",
@@ -82,5 +82,75 @@
     "title": "Insightful Analytics",
     "section": "",
     "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\nStarwars\n\n\n\n\n\n\n\n\n\nOct 30, 2023\n\n\nYour Name\n\n\n3 min\n\n\n\n\n\n\n  \n\n\n\n\nPost With Code\n\n\n\n\n\n\n\n\n\nOct 30, 2023\n\n\nYOUR NAME\n\n\n1 min\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\n\n\nOct 27, 2023\n\n\nYOUR NAME\n\n\n1 min\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "danl-200-quarto (2).html",
+    "href": "danl-200-quarto (2).html",
+    "title": "DANL Project",
+    "section": "",
+    "text": "1 Auto-completion\n\n\nCode\nlibrary(tidyverse)\n\n\n\n\nCode\nfare &lt;- \"10.00\"\ntip &lt;- \"2.00\"\ntax &lt;- \"0.80\""
+  },
+  {
+    "objectID": "danl-200-quarto (2).html#dive-into-markdown-syntax",
+    "href": "danl-200-quarto (2).html#dive-into-markdown-syntax",
+    "title": "DANL Project",
+    "section": "",
+    "text": "Check out Classwork 3 - Markdown Basics"
+  },
+  {
+    "objectID": "danl-200-quarto (2).html#r-as-a-calculator",
+    "href": "danl-200-quarto (2).html#r-as-a-calculator",
+    "title": "DANL Project",
+    "section": "2.1 1. R as a Calculator",
+    "text": "2.1 1. R as a Calculator\nR can be used as a simple calculator. You can perform arithmetic operations like addition (+), subtraction (-), multiplication (*), and division (/). For example, typing 2 + 2 in the R console will give you 4."
+  },
+  {
+    "objectID": "danl-200-quarto (2).html#variables",
+    "href": "danl-200-quarto (2).html#variables",
+    "title": "DANL Project",
+    "section": "2.2 Variables",
+    "text": "2.2 Variables\nVariables in R are used to store data. You can create a variable using the assignment operator &lt;- (option/Alt + -). For example:\n\n\nCode\nmy_variable &lt;- 10\n\n\nThis will store the value 10 in my_variable."
+  },
+  {
+    "objectID": "danl-200-quarto (2).html#data-types",
+    "href": "danl-200-quarto (2).html#data-types",
+    "title": "DANL Project",
+    "section": "2.3 Data Types",
+    "text": "2.3 Data Types\n\nR has several basic data types:\n\nNumeric: For decimal values like 2.5.\nInteger: For whole numbers like 2L (the L tells R it is an integer).\nCharacter: For text or string values, e.g., \"Hello\".\nLogical: For boolean values (TRUE or FALSE)."
+  },
+  {
+    "objectID": "danl-200-quarto (2).html#vectors",
+    "href": "danl-200-quarto (2).html#vectors",
+    "title": "DANL Project",
+    "section": "2.4 Vectors",
+    "text": "2.4 Vectors\nVectors are a basic data structure in R. They contain elements of the same type. You can create a vector using the c() function:\n\n\nCode\nmy_vector &lt;- c(1, 2, 3, 4, 5)"
+  },
+  {
+    "objectID": "danl-200-quarto (2).html#data-frames",
+    "href": "danl-200-quarto (2).html#data-frames",
+    "title": "DANL Project",
+    "section": "2.5 Data Frames",
+    "text": "2.5 Data Frames\nData frames are used for storing data tables in R. It is a list of vectors of equal length. For example, to create a simple data frame:\n\n\nCode\ndf &lt;- data.frame(\n  Name = c(\"Alice\", \"Bob\"), \n  Age = c(25, 30)\n  )"
+  },
+  {
+    "objectID": "danl-200-quarto (2).html#functions",
+    "href": "danl-200-quarto (2).html#functions",
+    "title": "DANL Project",
+    "section": "2.6 Functions",
+    "text": "2.6 Functions\nFunctions are used to carry out specific tasks in R. For example, sum() is a function that adds numbers together:\n\n\nCode\nsum(1, 2, 3) # Returns 6\n\n\n[1] 6"
+  },
+  {
+    "objectID": "danl-200-quarto (2).html#packages",
+    "href": "danl-200-quarto (2).html#packages",
+    "title": "DANL Project",
+    "section": "2.7 Packages",
+    "text": "2.7 Packages\nR has a vast collection of packages for various statistical tasks. You can install a package using install.packages(\"packageName\") and load it using library(packageName)."
+  },
+  {
+    "objectID": "danl-200-quarto (2).html#help-system",
+    "href": "danl-200-quarto (2).html#help-system",
+    "title": "DANL Project",
+    "section": "2.8 Help System",
+    "text": "2.8 Help System\nTo get help on a specific function or topic, use the help() function or the shorthand ?, like ?sum on R Console."
   }
 ]
