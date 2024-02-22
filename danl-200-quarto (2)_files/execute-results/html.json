@@ -1,0 +1,14 @@
+{
+  "hash": "196b0fce6f5d8807f40b9af558d34421",
+  "result": {
+    "markdown": "---\ntitle: DANL Project \nsubtitle: \"DANL 200: Introduction to Data Analytics\"\nauthor: \n  - name: Kenzie Perkins\ndate: last-modified\n\nexecute: \n  echo: true    # true false\n  eval: true    # true false\n  warning: false    # true false\n  message: false    # true false\n  fig-width: 9\n  # fig-height: 5\n  \nformat: \n  html:\n    toc: true    # true false\n    number-sections: true    # true false\n    code-fold: show    # true false show       # https://quarto.org/docs/output-formats/html-code.html\n    code-tools: true    # true false\n    highlight-style: atom-one        # atom-one tango espresso   # https://quarto.org/docs/output-formats/html-code.html#highlighting\n---\n\n\n\n\n# Auto-completion\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(tidyverse)\n```\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nfare <- \"10.00\"\ntip <- \"2.00\"\ntax <- \"0.80\"\n```\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

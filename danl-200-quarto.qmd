@@ -39,24 +39,12 @@ library(tidyverse)
 ```
 
 ```{r}
-fare <- "10.00"
-tip <- "2.00"
-tax <- "0.80"
+fare <- 10.00
+tip <- 2.00
+tax <- 0.80
 ```
 
-
-str_c("the total trip cost is: $")
-
-
-```{r}
-x <- c(1, 2, 3, 4, 5)
-
-sum(x)
-mean(x)
-sd(x)
-```
-```{r}
-c(c(), 1, NULL)
-c("a", NA, "c")
-```
+total <- tax + tip + fare
+str_c("the total trip cost is: $ ") 
+total
 

@@ -1,24 +1,25 @@
 ---
 title: "Kenzie Perkins" 
 about:
-  template: trestles  # jolla  trestles  solana  marquee  broadside
-  image: img/profile.png
+  template: broadside  # jolla  trestles  solana  marquee  broadside
+  image: img/me for website DANL.jpg
   image-width: 16em
-  image-shape: round # rectangle  round  rounded
+  image-shape: rounded # rectangle  round  rounded
   
   links:
     - icon: linkedin
       text: LinkedIn
       href: https://linkedin.com
-    - icon: instagram
-      text: Instagram
-      href: https://instagram.com
+      
+    
     - icon: github
       text: GitHub
-      href: https://github.com
+      href: https://github.com/kenzieperkins
+      
     - icon: file-earmark-pdf
       text: Resumé
-      href: https://GITHUB_USERNAME.github.io/resume-example.pdf
+      href: https://kenzieperkins.github.io/resume-example.pdf
+      
     - icon: mailbox
       text: Email
       href: mailto:kmp45@geneseo.edu
@@ -30,7 +31,7 @@ My name is Kenzie Perkins. I am currently studying in accounting here at SUNY Ge
 
 ## Education
 
-Graduate of Corning Community College|Associate's Degree in Accounting.
+Graduate of Corning Community College|Associate's Degree in Accounting.<br>
 Currently Studying at SUNY Geneseo|Studying for Bachelor's Degree in Accounting.
 
 ## Experience

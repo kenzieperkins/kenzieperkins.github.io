@@ -152,5 +152,12 @@
     "title": "DANL Project",
     "section": "2.8 Help System",
     "text": "2.8 Help System\nTo get help on a specific function or topic, use the help() function or the shorthand ?, like ?sum on R Console."
+  },
+  {
+    "objectID": "danl-200-quarto.html",
+    "href": "danl-200-quarto.html",
+    "title": "DANL Project",
+    "section": "",
+    "text": "1 Auto-completion\n\n\nCode\nlibrary(tidyverse)\n\n\n\n\nCode\nfare &lt;- 10.00\ntip &lt;- 2.00\ntax &lt;- 0.80\n\n\ntotal &lt;- tax + tip + fare str_c(“the total trip cost is: $”) total"
   }
 ]

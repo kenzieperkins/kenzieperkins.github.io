@@ -1,0 +1,1550 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.550">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Kenzie_Perkins">
+<meta name="dcterms.date" content="2023-02-14">
+
+<title>Kenzie Perkins - Homework 1 - Part 3</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Kenzie Perkins</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../project.html"> 
+<span class="menu-text">Project</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../blog-listing.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Homework 1 - Part 3</h1>
+<p class="subtitle lead">R Basics</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Kenzie_Perkins </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 14, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="direction" class="level1">
+<h1>Direction</h1>
+<ul>
+<li><p>Please address all questions in <strong>Homework Assignment 1: Part 3</strong> in this Quarto document.</p>
+<ul>
+<li>Do not forget providing your name in Line 6 in the YAML header.</li>
+</ul></li>
+<li><p>Save this Quarto document with the name below:</p>
+<ul>
+<li><code>danl-200-hw1-LASTNAME-FIRSTNAME.qmd</code><br>
+( e.g., <code>danl-200-hw1-choe-byeonghak.qmd</code>)</li>
+</ul></li>
+<li><p>Please submit your Quarto document for Homework Assignment 1: Part 3 to the Brightspace.</p></li>
+<li><p>The due is February 20, 2024, 2:00 P.M.</p></li>
+<li><p>Please send Byeong-Hak an email (bchoe@geneseo.edu) if you have any questions.</p></li>
+</ul>
+<p><br></p>
+</section>
+<section id="part-3.-r-basics" class="level1">
+<h1>Part 3. R Basics</h1>
+<section id="question-0." class="level2">
+<h2 class="anchored" data-anchor-id="question-0.">Question 0.</h2>
+<p>Provide your GitHub username.</p>
+<p><em>Answer</em>: kenzieperkins</p>
+<p><br><br></p>
+</section>
+<section id="question-1." class="level2">
+<h2 class="anchored" data-anchor-id="question-1.">Question 1.</h2>
+<p>base-R provides the R object <code>state.name</code>. Write an R code to assign <code>state.name</code> to a variable, <code>US_states</code>.</p>
+<p><em>Answer</em>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>US_states <span class="ot">&lt;-</span> state.name </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>#I did this to assign state.name to the US_states which is the variable.</p>
+<p><br><br></p>
+</section>
+<section id="question-2." class="level2">
+<h2 class="anchored" data-anchor-id="question-2.">Question 2.</h2>
+<p>The <code>temp_F</code> vector contains the average high temperatures in January for the following cities: Seoul, Lagos, Paris, Rio de Janeiro, San Juan, and Rochester.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>temp_F <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">35</span>, <span class="dv">88</span>, <span class="dv">42</span>, <span class="dv">84</span>, <span class="dv">81</span>, <span class="dv">30</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Create a new vector named <code>temp_C</code> that stores the converted Celsius temperatures. Below is the conversion formula:</p>
+<p><span class="math display">\[
+C = \frac{5}{9}\times(F - 32)
+\]</span></p>
+<p><em>Answer</em>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>farenheit_to_celsius <span class="ot">&lt;-</span> <span class="cf">function</span>(farenheit){<span class="fu">return</span>((farenheit <span class="sc">-</span><span class="dv">32</span>)<span class="sc">*</span> <span class="dv">5</span><span class="sc">/</span><span class="dv">9</span>)}</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>temp_F <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">35</span>, <span class="dv">88</span>, <span class="dv">42</span>, <span class="dv">84</span>, <span class="dv">81</span>, <span class="dv">30</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>temp_C <span class="ot">&lt;-</span> <span class="fu">farenheit_to_celsius</span> (temp_F)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(temp_F , <span class="st">"equals"</span> , temp_C) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>35 88 42 84 81 30 equals 1.666667 31.11111 5.555556 28.88889 27.22222 -1.111111</code></pre>
+</div>
+</div>
+<p>#First I assigned farenheit_to_celsius to the equation to be able to calculate farenheit to celsius. After I made a temp_f vector to store the data points that were given. Then I assigned temp_c the equation to calculate temp_f which is the temperatures that were given. Lastly, I put everything I made together so it will show.</p>
+<p><br><br></p>
+</section>
+<section id="question-3." class="level2">
+<h2 class="anchored" data-anchor-id="question-3.">Question 3.</h2>
+<ul>
+<li>Write an R code to calculate the standard deviation (SD) of the integer vector <code>x</code> below manually. That is to calculate the SD without using the <code>sd()</code> function.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">25</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Also, write an R code to test whether the standard deviation you calculate manually above is equal to <code>sd(x)</code>.</li>
+</ul>
+<p><em>Answer</em></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">:</span> <span class="dv">25</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">max</span>(x)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>n</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 25</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>StandardDeviation <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">sum</span>((x <span class="sc">-</span> <span class="fu">mean</span>(x))<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> (n <span class="sc">-</span> <span class="dv">1</span>)) <span class="co">#Standard Deviation by me</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>StandardDeviation</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 7.359801</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(x) <span class="co">#Standard Deviation Formula Supplied by R</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 7.359801</code></pre>
+</div>
+</div>
+<p>#N is set to max x to grab the total number of observations. Standard Deviation by me. Standard Deviation Formula Supplied by R</p>
+<p><br><br></p>
+</section>
+<section id="question-4." class="level2">
+<h2 class="anchored" data-anchor-id="question-4.">Question 4.</h2>
+<ul>
+<li>Write an R code to read the CSV file, <code>https://bcdanl.github.io/data/mlb_teams.csv</code> using the <code>tidyverse</code>’s <code>read_csv()</code> function, and assign it to <code>MLB_teams</code>.</li>
+</ul>
+<p><em>Answer</em>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>MLB_teams <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://bcdanl.github.io/data/mlb_teams.csv"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>#I assigned MLB_teams to read_csv and then the file.</p>
+<p><br><br></p>
+</section>
+<section id="question-5." class="level2">
+<h2 class="anchored" data-anchor-id="question-5.">Question 5.</h2>
+<p>Write an R code to provide summary statistics—mean, standard deviation, minimum, first quartile, median, third quartile, and maximum—for variables in the <code>MLB_teams</code> data.frame.</p>
+<p><em>Answer</em>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(MLB_teams)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    yearID teamID lgID   W   L      WPct attendance normAttend   payroll
+1     2008    ARI   NL  82  80 0.5061728    2509924  0.5838859  66202712
+2     2008    ATL   NL  72  90 0.4444444    2532834  0.5892155 102365683
+3     2008    BAL   AL  68  93 0.4223602    1950075  0.4536477  67196246
+4     2008    BOS   AL  95  67 0.5864198    3048250  0.7091172 133390035
+5     2008    CHA   AL  89  74 0.5460123    2500648  0.5817280 121189332
+6     2008    CHN   NL  97  64 0.6024845    3300200  0.7677285 118345833
+7     2008    CIN   NL  74  88 0.4567901    2058632  0.4789014  74117695
+8     2008    CLE   AL  81  81 0.5000000    2169760  0.5047532  78970066
+9     2008    COL   NL  74  88 0.4567901    2650218  0.6165226  68655500
+10    2008    DET   AL  74  88 0.4567901    3202645  0.7450342 137685196
+11    2008    FLO   NL  84  77 0.5217391    1335076  0.3105799  21811500
+12    2008    HOU   NL  86  75 0.5341615    2779487  0.6465946  88930414
+13    2008    KCA   AL  75  87 0.4629630    1578922  0.3673061  58245500
+14    2008    LAA   AL 100  62 0.6172840    3336747  0.7762305 119216333
+15    2008    LAN   NL  84  78 0.5185185    3730553  0.8678419 118588536
+16    2008    MIL   NL  90  72 0.5555556    3068458  0.7138182  80937499
+17    2008    MIN   AL  88  75 0.5398773    2302431  0.5356166  56932766
+18    2008    NYA   AL  89  73 0.5493827    4298655  1.0000000 207896789
+19    2008    NYN   NL  89  73 0.5493827    4042045  0.9403046 137793376
+20    2008    OAK   AL  75  86 0.4658385    1665256  0.3873900  47967126
+21    2008    PHI   NL  92  70 0.5679012    3422583  0.7961986  97879880
+22    2008    PIT   NL  67  95 0.4135802    1609076  0.3743208  48689783
+23    2008    SDN   NL  63  99 0.3888889    2427535  0.5647197  73677616
+24    2008    SEA   AL  61 101 0.3765432    2329702  0.5419607 117666482
+25    2008    SFN   NL  72  90 0.4444444    2863837  0.6662170  76594500
+26    2008    SLN   NL  86  76 0.5308642    3432917  0.7986026  99624449
+27    2008    TBA   AL  97  65 0.5987654    1811986  0.4215239  43820597
+28    2008    TEX   AL  79  83 0.4876543    1945677  0.4526246  67712326
+29    2008    TOR   AL  86  76 0.5308642    2399786  0.5582644  97793900
+30    2008    WAS   NL  59 102 0.3664596    2320400  0.5397968  54961000
+31    2009    ARI   NL  70  92 0.4320988    2128765  0.4952165  73115666
+32    2009    ATL   NL  86  76 0.5308642    2373631  0.5521799  96726166
+33    2009    BAL   AL  64  98 0.3950617    1907163  0.4436651  67101666
+34    2009    BOS   AL  95  67 0.5864198    3062699  0.7124784 121345999
+35    2009    CHA   AL  79  83 0.4876543    2284163  0.5313669  96068500
+36    2009    CHN   NL  83  78 0.5155280    3168859  0.7371745 134809000
+37    2009    CIN   NL  78  84 0.4814815    1747919  0.4066200  73558500
+38    2009    CLE   AL  65  97 0.4012346    1766242  0.4108825  81579166
+39    2009    COL   NL  92  70 0.5679012    2665080  0.6199800  75201000
+40    2009    DET   AL  86  77 0.5276074    2567165  0.5972019 115085145
+41    2009    FLO   NL  87  75 0.5370370    1464109  0.3405970  36834000
+42    2009    HOU   NL  74  88 0.4567901    2521076  0.5864802 102996414
+43    2009    KCA   AL  65  97 0.4012346    1797891  0.4182450  70519333
+44    2009    LAA   AL  97  65 0.5987654    3240386  0.7538139 113709000
+45    2009    LAN   NL  95  67 0.5864198    3761655  0.8750772 100414592
+46    2009    MIL   NL  80  82 0.4938272    3037451  0.7066050  80182502
+47    2009    MIN   AL  87  76 0.5337423    2416237  0.5620914  65299266
+48    2009    NYA   AL 103  59 0.6358025    3719358  0.8652376 201449189
+49    2009    NYN   NL  70  92 0.4320988    3168571  0.7371075 149373987
+50    2009    OAK   AL  75  87 0.4629630    1408783  0.3277265  61910000
+51    2009    PHI   NL  93  69 0.5740741    3600693  0.8376325 113004046
+52    2009    PIT   NL  62  99 0.3850932    1577853  0.3670574  48693000
+53    2009    SDN   NL  75  87 0.4629630    1919603  0.4465590  43333700
+54    2009    SEA   AL  85  77 0.5246914    2195533  0.5107488  98904166
+55    2009    SFN   NL  88  74 0.5432099    2862110  0.6658152  83026450
+56    2009    SLN   NL  91  71 0.5617284    3343252  0.7777437  88528409
+57    2009    TBA   AL  84  78 0.5185185    1874962  0.4361741  63313034
+58    2009    TEX   AL  87  75 0.5370370    2156016  0.5015560  68178798
+59    2009    TOR   AL  75  87 0.4629630    1876129  0.4364456  80538300
+60    2009    WAS   NL  59 103 0.3641975    1817226  0.4227429  59928000
+61    2010    ARI   NL  65  97 0.4012346    2056941  0.4785080  60718166
+62    2010    ATL   NL  91  71 0.5617284    2510119  0.5839313  84423666
+63    2010    BAL   AL  66  96 0.4074074    1733018  0.4031535  81612500
+64    2010    BOS   AL  89  73 0.5493827    3046443  0.7086968 162447333
+65    2010    CHA   AL  88  74 0.5432099    2194378  0.5104801 105530000
+66    2010    CHN   NL  75  87 0.4629630    3062973  0.7125422 146609000
+67    2010    CIN   NL  91  71 0.5617284    2060550  0.4793476  71761542
+68    2010    CLE   AL  69  93 0.4259259    1394812  0.3244764  61203966
+69    2010    COL   NL  83  79 0.5123457    2875245  0.6688708  84227000
+70    2010    DET   AL  81  81 0.5000000    2461237  0.5725598 122864928
+71    2010    FLO   NL  80  82 0.4938272    1535226  0.3571410  57029719
+72    2010    HOU   NL  76  86 0.4691358    2331490  0.5423766  92355500
+73    2010    KCA   AL  67  95 0.4135802    1615324  0.3757743  71405210
+74    2010    LAA   AL  80  82 0.4938272    3250816  0.7562403 104963866
+75    2010    LAN   NL  80  82 0.4938272    3562320  0.8287057  95358016
+76    2010    MIL   NL  77  85 0.4753086    2776531  0.6459069  81108278
+77    2010    MIN   AL  94  68 0.5802469    3223640  0.7499183  97559166
+78    2010    NYA   AL  95  67 0.5864198    3765807  0.8760431 206333389
+79    2010    NYN   NL  79  83 0.4876543    2559738  0.5954742 134422942
+80    2010    OAK   AL  81  81 0.5000000    1418391  0.3299616  55254900
+81    2010    PHI   NL  97  65 0.5987654    3647249  0.8484628 141928379
+82    2010    PIT   NL  57 105 0.3518519    1613399  0.3753265  34943000
+83    2010    SDN   NL  90  72 0.5555556    2131774  0.4959165  37799300
+84    2010    SEA   AL  61 101 0.3765432    2085488  0.4851490  86510000
+85    2010    SFN   NL  92  70 0.5679012    3037443  0.7066031  98641333
+86    2010    SLN   NL  86  76 0.5308642    3301218  0.7679653  93540751
+87    2010    TBA   AL  96  66 0.5925926    1843445  0.4288423  71923471
+88    2010    TEX   AL  90  72 0.5555556    2505171  0.5827802  55250544
+89    2010    TOR   AL  85  77 0.5246914    1625555  0.3781543  62234000
+90    2010    WAS   NL  69  93 0.4259259    1828066  0.4252646  61400000
+91    2011    ARI   NL  94  68 0.5802469    2105432  0.4897886  53639833
+92    2011    ATL   NL  89  73 0.5493827    2372940  0.5520192  87002692
+93    2011    BAL   AL  69  93 0.4259259    1755461  0.4083745  85304038
+94    2011    BOS   AL  90  72 0.5555556    3054001  0.7104550 161762475
+95    2011    CHA   AL  79  83 0.4876543    2001117  0.4655217 127789000
+96    2011    CHN   NL  71  91 0.4382716    3017966  0.7020722 125047329
+97    2011    CIN   NL  79  83 0.4876543    2213588  0.5149490  75947134
+98    2011    CLE   AL  80  82 0.4938272    1840835  0.4282351  48776566
+99    2011    COL   NL  73  89 0.4506173    2909777  0.6769041  88148071
+100   2011    DET   AL  95  67 0.5864198    2642045  0.6146213 105700231
+101   2011    FLO   NL  72  90 0.4444444    1477462  0.3437033  56944000
+102   2011    HOU   NL  56 106 0.3456790    2067016  0.4808518  70694000
+103   2011    KCA   AL  71  91 0.4382716    1724450  0.4011604  35712000
+104   2011    LAA   AL  86  76 0.5308642    3166321  0.7365841 138543166
+105   2011    LAN   NL  82  79 0.5093168    2935139  0.6828040 104188999
+106   2011    MIL   NL  96  66 0.5925926    3071373  0.7144963  85497333
+107   2011    MIN   AL  63  99 0.3888889    3168116  0.7370017 112737000
+108   2011    NYA   AL  97  65 0.5987654    3653680  0.8499589 202275028
+109   2011    NYN   NL  77  85 0.4753086    2352596  0.5472865 118847309
+110   2011    OAK   AL  74  88 0.4567901    1476791  0.3435472  66536500
+111   2011    PHI   NL 102  60 0.6296296    3680718  0.8562488 172976379
+112   2011    PIT   NL  72  90 0.4444444    1940429  0.4514038  45047000
+113   2011    SDN   NL  71  91 0.4382716    2143018  0.4985322  45869140
+114   2011    SEA   AL  67  95 0.4135802    1939421  0.4511693  86110600
+115   2011    SFN   NL  86  76 0.5308642    3387303  0.7879914 118198333
+116   2011    SLN   NL  90  72 0.5555556    3093954  0.7197493 105433572
+117   2011    TBA   AL  91  71 0.5617284    1529188  0.3557364  41053571
+118   2011    TEX   AL  96  66 0.5925926    2946949  0.6855514  92299264
+119   2011    TOR   AL  81  81 0.5000000    1818103  0.4229469  62567800
+120   2011    WAS   NL  80  81 0.4968944    1940478  0.4514152  63856928
+121   2012    ARI   NL  81  81 0.5000000    2177617  0.5065810  73804833
+122   2012    ATL   NL  94  68 0.5802469    2420171  0.5630066  82829942
+123   2012    BAL   AL  93  69 0.5740741    2102240  0.4890460  77353999
+124   2012    BOS   AL  69  93 0.4259259    3043003  0.7078965 173186617
+125   2012    CHA   AL  85  77 0.5246914    1965955  0.4573419  96919500
+126   2012    CHN   NL  61 101 0.3765432    2882756  0.6706181  88197033
+127   2012    CIN   NL  97  65 0.5987654    2347251  0.5460431  82203616
+128   2012    CLE   AL  68  94 0.4197531    1603596  0.3730460  78430300
+129   2012    COL   NL  64  98 0.3950617    2630458  0.6119258  78069571
+130   2012    DET   AL  88  74 0.5432099    3028033  0.7044141 132300000
+131   2012    HOU   NL  55 107 0.3395062    1607733  0.3740084  60651000
+132   2012    KCA   AL  72  90 0.4444444    1739859  0.4047450  60916225
+133   2012    LAA   AL  89  73 0.5493827    3061770  0.7122623 154485166
+134   2012    LAN   NL  86  76 0.5308642    3324246  0.7733224  95143575
+135   2012    MIA   NL  69  93 0.4259259    2219444  0.5163113 118078000
+136   2012    MIL   NL  83  79 0.5123457    2831385  0.6586677  97653944
+137   2012    MIN   AL  66  96 0.4074074    2776354  0.6458657  94085000
+138   2012    NYA   AL  95  67 0.5864198    3542406  0.8240731 196522289
+139   2012    NYN   NL  74  88 0.4567901    2242803  0.5217453  93353983
+140   2012    OAK   AL  94  68 0.5802469    1679013  0.3905903  55372500
+141   2012    PHI   NL  81  81 0.5000000    3565718  0.8294962 174538938
+142   2012    PIT   NL  79  83 0.4876543    2091918  0.4866448  62951999
+143   2012    SDN   NL  76  86 0.4691358    2123721  0.4940431  55244700
+144   2012    SEA   AL  75  87 0.4629630    1721920  0.4005718  81978100
+145   2012    SFN   NL  94  68 0.5802469    3377371  0.7856809 117620683
+146   2012    SLN   NL  88  74 0.5432099    3262109  0.7588674 110300862
+147   2012    TBA   AL  90  72 0.5555556    1559681  0.3628300  64173500
+148   2012    TEX   AL  93  69 0.5740741    3460280  0.8049681 120510974
+149   2012    TOR   AL  73  89 0.4506173    2099663  0.4884465  75009200
+150   2012    WAS   NL  98  64 0.6049383    2370794  0.5515200  80855143
+151   2013    ARI   NL  81  81 0.5000000    2134795  0.4966193  90132000
+152   2013    ATL   NL  96  66 0.5925926    2548679  0.5929015  87871525
+153   2013    BAL   AL  85  77 0.5246914    2357561  0.5484415  84393333
+154   2013    BOS   AL  97  65 0.5987654    2833333  0.6591208 151530000
+155   2013    CHA   AL  63  99 0.3888889    2642682  0.6147695 120065277
+156   2013    CHN   NL  66  96 0.4074074    1768413  0.4113875 100567726
+157   2013    CIN   NL  90  72 0.5555556    2534369  0.5895726 106404462
+158   2013    CLE   AL  92  70 0.5679012    1572926  0.3659112  75771800
+159   2013    COL   NL  74  88 0.4567901    2793828  0.6499307  74409071
+160   2013    DET   AL  93  69 0.5740741    3083397  0.7172934 145989500
+161   2013    HOU   AL  51 111 0.3148148    1651883  0.3842790  17890700
+162   2013    KCA   AL  86  76 0.5308642    1750754  0.4072795  80091725
+163   2013    LAA   AL  78  84 0.4814815    3019505  0.7024302 124174750
+164   2013    LAN   NL  92  70 0.5679012    3743527  0.8708601 223362196
+165   2013    MIA   NL  62 100 0.3827160    1586322  0.3690275  33601900
+166   2013    MIL   NL  74  88 0.4567901    2531105  0.5888132  76947033
+167   2013    MIN   AL  66  96 0.4074074    2477644  0.5763766  75337500
+168   2013    NYA   AL  85  77 0.5246914    3279589  0.7629338 231978886
+169   2013    NYN   NL  74  88 0.4567901    2135657  0.4968198  49448346
+170   2013    OAK   AL  96  66 0.5925926    1809302  0.4208996  60132500
+171   2013    PHI   NL  73  89 0.4506173    3012403  0.7007780 169863189
+172   2013    PIT   NL  94  68 0.5802469    2256862  0.5250158  77062000
+173   2013    SDN   NL  76  86 0.4691358    2166691  0.5040393  65585500
+174   2013    SEA   AL  71  91 0.4382716    1761546  0.4097900  74005043
+175   2013    SFN   NL  76  86 0.4691358    3326796  0.7739156 140180334
+176   2013    SLN   NL  97  65 0.5987654    3369769  0.7839124  92260110
+177   2013    TBA   AL  92  71 0.5644172    1510300  0.3513425  52955272
+178   2013    TEX   AL  91  72 0.5582822    3178273  0.7393645 112522600
+179   2013    TOR   AL  74  88 0.4567901    2536562  0.5900827 126288100
+180   2013    WAS   NL  86  76 0.5308642    2652422  0.6170353 113703270
+181   2014    ARI   NL  64  98 0.3950617    2073730  0.4824137  97861500
+182   2014    ATL   NL  79  83 0.4876543    2354305  0.5476841  97609000
+183   2014    BAL   AL  96  66 0.5925926    2464473  0.5733126 103416000
+184   2014    BOS   AL  71  91 0.4382716    2956089  0.6876777 139019929
+185   2014    CHA   AL  73  89 0.4506173    2652113  0.6169634  81830500
+186   2014    CHN   NL  73  89 0.4506173    1650821  0.3840320  65522500
+187   2014    CIN   NL  76  86 0.4691358    2476664  0.5761486 108217500
+188   2014    CLE   AL  85  77 0.5246914    1437393  0.3343820  82151899
+189   2014    COL   NL  66  96 0.4074074    2680329  0.6235274  95403500
+190   2014    DET   AL  90  72 0.5555556    2917209  0.6786330 152855500
+191   2014    HOU   AL  70  92 0.4320988    1751829  0.4075296  35116300
+192   2014    KCA   AL  89  73 0.5493827    1956482  0.4551382  74594075
+193   2014    LAA   AL  98  64 0.6049383    3095935  0.7202102 121988250
+194   2014    LAN   NL  94  68 0.5802469    3782337  0.8798885 217014600
+195   2014    MIA   NL  77  85 0.4753086    1732283  0.4029826  41836900
+196   2014    MIL   NL  82  80 0.5061728    2797384  0.6507580 101217000
+197   2014    MIN   AL  70  92 0.4320988    2250606  0.5235605  83762500
+198   2014    NYA   AL  84  78 0.5185185    3401624  0.7913229 197543907
+199   2014    NYN   NL  79  83 0.4876543    2148808  0.4998791  30750000
+200   2014    OAK   AL  88  74 0.5432099    2003628  0.4661058  72408400
+201   2014    PHI   NL  73  89 0.4506173    2423852  0.5638629 180944967
+202   2014    PIT   NL  88  74 0.5432099    2442564  0.5682159  77178000
+203   2014    SDN   NL  77  85 0.4753086    2195373  0.5107116  75685700
+204   2014    SEA   AL  87  75 0.5370370    2064334  0.4802279  92531100
+205   2014    SFN   NL  88  74 0.5432099    3368697  0.7836630  20000000
+206   2014    SLN   NL  90  72 0.5555556    3540649  0.8236644 120693000
+207   2014    TBA   AL  77  85 0.4753086    1446464  0.3364922  72689100
+208   2014    TEX   AL  67  95 0.4135802    2718733  0.6324613 112255059
+209   2014    TOR   AL  83  79 0.5123457    2375525  0.5526205 109920100
+210   2014    WAS   NL  96  66 0.5925926    2579389  0.6000456 131983680
+    metroPop                          name
+1    4489109          Arizona Diamondbacks
+2    5614323                Atlanta Braves
+3    2785874             Baltimore Orioles
+4    4732161                Boston Red Sox
+5    9554598             Chicago White Sox
+6    9554598                  Chicago Cubs
+7    2149449               Cincinnati Reds
+8    2063598             Cleveland Indians
+9    2754258              Colorado Rockies
+10   4296611                Detroit Tigers
+11   5929819               Florida Marlins
+12   6490180                Houston Astros
+13   2071133            Kansas City Royals
+14  13262220 Los Angeles Angels of Anaheim
+15  13262220           Los Angeles Dodgers
+16   1572245             Milwaukee Brewers
+17   3495176               Minnesota Twins
+18  20092883              New York Yankees
+19  20092883                 New York Mets
+20   1952872             Oakland Athletics
+21   6051170         Philadelphia Phillies
+22   2355968            Pittsburgh Pirates
+23   3263431              San Diego Padres
+24   3671478              Seattle Mariners
+25   4594060          San Francisco Giants
+26   2806207           St. Louis Cardinals
+27   2915582                Tampa Bay Rays
+28   6954330                 Texas Rangers
+29   5583064             Toronto Blue Jays
+30   6033737          Washington Nationals
+31   4489109          Arizona Diamondbacks
+32   5614323                Atlanta Braves
+33   2785874             Baltimore Orioles
+34   4732161                Boston Red Sox
+35   9554598             Chicago White Sox
+36   9554598                  Chicago Cubs
+37   2149449               Cincinnati Reds
+38   2063598             Cleveland Indians
+39   2754258              Colorado Rockies
+40   4296611                Detroit Tigers
+41   5929819               Florida Marlins
+42   6490180                Houston Astros
+43   2071133            Kansas City Royals
+44  13262220 Los Angeles Angels of Anaheim
+45  13262220           Los Angeles Dodgers
+46   1572245             Milwaukee Brewers
+47   3495176               Minnesota Twins
+48  20092883              New York Yankees
+49  20092883                 New York Mets
+50   1952872             Oakland Athletics
+51   6051170         Philadelphia Phillies
+52   2355968            Pittsburgh Pirates
+53   3263431              San Diego Padres
+54   3671478              Seattle Mariners
+55   4594060          San Francisco Giants
+56   2806207           St. Louis Cardinals
+57   2915582                Tampa Bay Rays
+58   6954330                 Texas Rangers
+59   5583064             Toronto Blue Jays
+60   6033737          Washington Nationals
+61   4489109          Arizona Diamondbacks
+62   5614323                Atlanta Braves
+63   2785874             Baltimore Orioles
+64   4732161                Boston Red Sox
+65   9554598             Chicago White Sox
+66   9554598                  Chicago Cubs
+67   2149449               Cincinnati Reds
+68   2063598             Cleveland Indians
+69   2754258              Colorado Rockies
+70   4296611                Detroit Tigers
+71   5929819               Florida Marlins
+72   6490180                Houston Astros
+73   2071133            Kansas City Royals
+74  13262220 Los Angeles Angels of Anaheim
+75  13262220           Los Angeles Dodgers
+76   1572245             Milwaukee Brewers
+77   3495176               Minnesota Twins
+78  20092883              New York Yankees
+79  20092883                 New York Mets
+80   1952872             Oakland Athletics
+81   6051170         Philadelphia Phillies
+82   2355968            Pittsburgh Pirates
+83   3263431              San Diego Padres
+84   3671478              Seattle Mariners
+85   4594060          San Francisco Giants
+86   2806207           St. Louis Cardinals
+87   2915582                Tampa Bay Rays
+88   6954330                 Texas Rangers
+89   5583064             Toronto Blue Jays
+90   6033737          Washington Nationals
+91   4489109          Arizona Diamondbacks
+92   5614323                Atlanta Braves
+93   2785874             Baltimore Orioles
+94   4732161                Boston Red Sox
+95   9554598             Chicago White Sox
+96   9554598                  Chicago Cubs
+97   2149449               Cincinnati Reds
+98   2063598             Cleveland Indians
+99   2754258              Colorado Rockies
+100  4296611                Detroit Tigers
+101  5929819               Florida Marlins
+102  6490180                Houston Astros
+103  2071133            Kansas City Royals
+104 13262220 Los Angeles Angels of Anaheim
+105 13262220           Los Angeles Dodgers
+106  1572245             Milwaukee Brewers
+107  3495176               Minnesota Twins
+108 20092883              New York Yankees
+109 20092883                 New York Mets
+110  1952872             Oakland Athletics
+111  6051170         Philadelphia Phillies
+112  2355968            Pittsburgh Pirates
+113  3263431              San Diego Padres
+114  3671478              Seattle Mariners
+115  4594060          San Francisco Giants
+116  2806207           St. Louis Cardinals
+117  2915582                Tampa Bay Rays
+118  6954330                 Texas Rangers
+119  5583064             Toronto Blue Jays
+120  6033737          Washington Nationals
+121  4489109          Arizona Diamondbacks
+122  5614323                Atlanta Braves
+123  2785874             Baltimore Orioles
+124  4732161                Boston Red Sox
+125  9554598             Chicago White Sox
+126  9554598                  Chicago Cubs
+127  2149449               Cincinnati Reds
+128  2063598             Cleveland Indians
+129  2754258              Colorado Rockies
+130  4296611                Detroit Tigers
+131  6490180                Houston Astros
+132  2071133            Kansas City Royals
+133 13262220 Los Angeles Angels of Anaheim
+134 13262220           Los Angeles Dodgers
+135  5929819                 Miami Marlins
+136  1572245             Milwaukee Brewers
+137  3495176               Minnesota Twins
+138 20092883              New York Yankees
+139 20092883                 New York Mets
+140  1952872             Oakland Athletics
+141  6051170         Philadelphia Phillies
+142  2355968            Pittsburgh Pirates
+143  3263431              San Diego Padres
+144  3671478              Seattle Mariners
+145  4594060          San Francisco Giants
+146  2806207           St. Louis Cardinals
+147  2915582                Tampa Bay Rays
+148  6954330                 Texas Rangers
+149  5583064             Toronto Blue Jays
+150  6033737          Washington Nationals
+151  4489109          Arizona Diamondbacks
+152  5614323                Atlanta Braves
+153  2785874             Baltimore Orioles
+154  4732161                Boston Red Sox
+155  9554598                  Chicago Cubs
+156  9554598             Chicago White Sox
+157  2149449               Cincinnati Reds
+158  2063598             Cleveland Indians
+159  2754258              Colorado Rockies
+160  4296611                Detroit Tigers
+161  6490180                Houston Astros
+162  2071133            Kansas City Royals
+163 13262220 Los Angeles Angels of Anaheim
+164 13262220           Los Angeles Dodgers
+165  5929819                 Miami Marlins
+166  1572245             Milwaukee Brewers
+167  3495176               Minnesota Twins
+168 20092883              New York Yankees
+169 20092883                 New York Mets
+170  1952872             Oakland Athletics
+171  6051170         Philadelphia Phillies
+172  2355968            Pittsburgh Pirates
+173  3263431              San Diego Padres
+174  3671478              Seattle Mariners
+175  4594060          San Francisco Giants
+176  2806207           St. Louis Cardinals
+177  2915582                Tampa Bay Rays
+178  6954330                 Texas Rangers
+179  5583064             Toronto Blue Jays
+180  6033737          Washington Nationals
+181  4489109          Arizona Diamondbacks
+182  5614323                Atlanta Braves
+183  2785874             Baltimore Orioles
+184  4732161                Boston Red Sox
+185  9554598                  Chicago Cubs
+186  9554598             Chicago White Sox
+187  2149449               Cincinnati Reds
+188  2063598             Cleveland Indians
+189  2754258              Colorado Rockies
+190  4296611                Detroit Tigers
+191  6490180                Houston Astros
+192  2071133            Kansas City Royals
+193 13262220 Los Angeles Angels of Anaheim
+194 13262220           Los Angeles Dodgers
+195  5929819                 Miami Marlins
+196  1572245             Milwaukee Brewers
+197  3495176               Minnesota Twins
+198 20092883              New York Yankees
+199 20092883                 New York Mets
+200  1952872             Oakland Athletics
+201  6051170         Philadelphia Phillies
+202  2355968            Pittsburgh Pirates
+203  3263431              San Diego Padres
+204  3671478              Seattle Mariners
+205  4594060          San Francisco Giants
+206  2806207           St. Louis Cardinals
+207  2915582                Tampa Bay Rays
+208  6954330                 Texas Rangers
+209  5583064             Toronto Blue Jays
+210  6033737          Washington Nationals</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(MLB_teams)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Name</td>
+<td style="text-align: left;">MLB_teams</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Number of rows</td>
+<td style="text-align: left;">210</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Number of columns</td>
+<td style="text-align: left;">11</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">_______________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Column type frequency:</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">character</td>
+<td style="text-align: left;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">numeric</td>
+<td style="text-align: left;">8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">________________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Group variables</td>
+<td style="text-align: left;">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: character</strong></p>
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 13%">
+<col style="width: 19%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 8%">
+<col style="width: 12%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">min</th>
+<th style="text-align: right;">max</th>
+<th style="text-align: right;">empty</th>
+<th style="text-align: right;">n_unique</th>
+<th style="text-align: right;">whitespace</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">teamID</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">31</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">lgID</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">name</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">29</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">31</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 7%">
+<col style="width: 10%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 4%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">mean</th>
+<th style="text-align: right;">sd</th>
+<th style="text-align: right;">p0</th>
+<th style="text-align: right;">p25</th>
+<th style="text-align: right;">p50</th>
+<th style="text-align: right;">p75</th>
+<th style="text-align: right;">p100</th>
+<th style="text-align: left;">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">yearID</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2011.00</td>
+<td style="text-align: right;">2.00</td>
+<td style="text-align: right;">2008.00</td>
+<td style="text-align: right;">2009.00</td>
+<td style="text-align: right;">2011.00</td>
+<td style="text-align: right;">2013.00</td>
+<td style="text-align: right;">2014.00</td>
+<td style="text-align: left;">▇▃▃▃▇</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">W</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">80.99</td>
+<td style="text-align: right;">11.11</td>
+<td style="text-align: right;">51.00</td>
+<td style="text-align: right;">73.00</td>
+<td style="text-align: right;">81.00</td>
+<td style="text-align: right;">90.00</td>
+<td style="text-align: right;">103.00</td>
+<td style="text-align: left;">▁▅▇▇▅</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">L</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">80.99</td>
+<td style="text-align: right;">11.08</td>
+<td style="text-align: right;">59.00</td>
+<td style="text-align: right;">72.00</td>
+<td style="text-align: right;">81.00</td>
+<td style="text-align: right;">89.00</td>
+<td style="text-align: right;">111.00</td>
+<td style="text-align: left;">▅▇▇▅▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">WPct</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.50</td>
+<td style="text-align: right;">0.07</td>
+<td style="text-align: right;">0.31</td>
+<td style="text-align: right;">0.45</td>
+<td style="text-align: right;">0.50</td>
+<td style="text-align: right;">0.56</td>
+<td style="text-align: right;">0.64</td>
+<td style="text-align: left;">▁▅▇▇▅</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">attendance</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2481715.02</td>
+<td style="text-align: right;">665564.37</td>
+<td style="text-align: right;">1335076.00</td>
+<td style="text-align: right;">1940441.25</td>
+<td style="text-align: right;">2418204.00</td>
+<td style="text-align: right;">3041615.00</td>
+<td style="text-align: right;">4298655.00</td>
+<td style="text-align: left;">▆▇▆▃▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">normAttend</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.58</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">0.31</td>
+<td style="text-align: right;">0.45</td>
+<td style="text-align: right;">0.56</td>
+<td style="text-align: right;">0.71</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: left;">▆▇▆▃▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">payroll</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">94365324.41</td>
+<td style="text-align: right;">40266547.26</td>
+<td style="text-align: right;">17890700.00</td>
+<td style="text-align: right;">67325266.00</td>
+<td style="text-align: right;">85803966.50</td>
+<td style="text-align: right;">114741108.75</td>
+<td style="text-align: right;">231978886.00</td>
+<td style="text-align: left;">▂▇▃▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">metroPop</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">6014841.23</td>
+<td style="text-align: right;">4817724.83</td>
+<td style="text-align: right;">1572245.00</td>
+<td style="text-align: right;">2785874.00</td>
+<td style="text-align: right;">4541584.50</td>
+<td style="text-align: right;">6490180.00</td>
+<td style="text-align: right;">20092883.00</td>
+<td style="text-align: left;">▇▃▁▁▁</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>#I used skim to be able to generate the following; mean, standard deviation, minimum, 1st quartile, median, 3rd quartile and the maximum.</p>
+<p><br><br><br></p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script type="text/javascript" src="links.js"></script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Powered with GitHub and Quarto<br>© Kenzie Perkins, 2024</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
