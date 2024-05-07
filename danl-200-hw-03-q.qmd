@@ -1,0 +1,252 @@
+---
+title: Homework 3
+subtitle: Data Visualization Basics
+date: last-modified
+from: markdown+emoji
+comments: false
+
+execute: 
+  warning: false
+  message: false
+  fig-width: 9
+  fig-height: 7
+  fig-align: center
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+library(skimr)
+library(rmarkdown)
+```
+
+# Direction
+
+- Download the Homework 3 Quarto document, `danl-200-hw-03-q.qmd`, by clicking [this link](https://drive.google.com/file/d/1s7pm4yzumOQDKWJudPYUaQRICRbEaem_/view?usp=share_link).
+
+- Provide both your answer to each question in **Homework 3** in the `danl-200-hw-03-q.qmd`.
+
+- Please submit your **Quarto document for Homework 3** to the Brightspace with the name below:
+
+  - `danl-200-hw3-LASTNAME-FIRSTNAME.qmd`\
+  ( e.g., `danl-200-hw3-choe-byeonghak.qmd` )
+
+- The due is March 27, 2024, 11:59 P.M.
+
+- Please send an email to Byeong-Hak (`bchoe@geneseo.edu`) if you have any questions or clarifications.
+
+<br><br><br>
+
+
+
+# Customer Data with Health Insurance
+
+Read the data file, `custdata_rev.csv`, as the data.frame object with the name, `health_cust`:
+
+```{r}
+#| echo: true
+library(tidyverse)
+library(skimr)
+
+health_cust <- read_csv(
+  'https://bcdanl.github.io/data/custdata_rev.csv'
+)
+```
+
+
+```{r}
+#| echo: false
+#| eval: true
+
+rmarkdown::paged_table(health_cust)
+```
+
+<br>
+
+## Variable Description for `health_cust`
+
+The following describes the variables  in the `health_cust` data.frame.
+
+- `custid`: ID of customer
+- `sex`: Sex
+- `is_employed`: Employment status
+  - `NA`: Unknown or not applicable
+  - `TRUE`: Employed
+  - `FALSE`: Unemployed
+- `income`: Income (in $)
+- `marital_status`: Marital status
+- `housing_type`: Housing type
+- `recent_move`: 
+  - `TRUE`: Recently moved
+  - `FALSE`: Not recently moved
+- `age`: Age
+- `state_of_res`: State of residence
+- `gas_usage`: Gas usage
+  - `NA`: Unknown or not applicable
+  - `001`: Included in rent or condo fee
+  - `002`: Included in electricity payment
+  - `003`: No charge or gas not used
+  - `004`-`999`: $4 to $999 (rounded and top-coded)
+- `health_ins`: Health insuarance status
+  - `TRUE`: customer with health insuarance 
+  - `FALSE`: customer without health insuarance 
+
+<br><br>
+
+## Question 1 
+Report summary statistics including a mean value for each logical variable in `health_cust`.
+
+*Answer*:
+```{r}
+ggplot(data = health_cust) + 
+  stat_summary(
+    mapping = aes(x = is_employed, y = age),
+    fun.min = min,
+    fun.max = max,
+    fun = mean
+  )
+```
+#From the data visualizzation I can tell that the average amount of people who are unemployed happen to be younger(around 38 years old) than the people who are employed(around 44 years old). People with the unknown variable seem to have an average age of 69.
+<br><br>
+
+
+
+
+
+## Question 2 
+Use `health_cust` data.frame to create a new data.frame, `health_cust2`, in which 
+(1) `age` is greater than 0 and less than 100; and
+(2) `income` is positive.
+
+*Answer*:
+```{r}
+health_cust2  <-  filter(health_cust, age > 0, age < 100, income > 0)
+```
+
+<br><br>
+
+
+
+
+
+## Question 3
+Provide both ggplot code and comments to describe the distribution of `income`.
+
+*Answer*:
+```{r}
+ggplot(data = health_cust) +
+  geom_histogram(mapping = 
+                   aes(x = log10(income)),
+                 bins = 100)
+```
+#Through data visualization I can see that most people earn an income around $40,000 - $50,000. Very few people earn an income below $39,000 and above $51,000.
+
+<br><br>
+
+
+
+
+
+## Question 4
+Provide both ggplot code and comments to describe the distribution of `marital_status`.
+
+*Answer*:
+```{r}
+ggplot(data = health_cust) +
+  geom_bar(mapping = 
+             aes(x = marital_status,
+                 fill = marital_status)) 
+```
+#The data shows not many people are widowed. The data also shows that more people have never been married than to divorced people. Lastly it shows that majority of people are married.
+<br><br>
+
+
+
+
+
+## Question 5
+- Suppose you randomly pick one customer's observation from each state in data.frame `health_cust`.
+
+- Use ggplot code to determine (1) the state where a customer is most probable to possess health insurance; and (2) the state where it is least probable for a customer to have health insurance.
+
+*Answer*:
+```{r}
+ggplot(data = health_cust) +
+  geom_bar(mapping =
+             aes(y = state_of_res,
+                 fill = health_ins))
+```
+#California is the state in which the most people don't have health insurance. Texas is the state in which most people have health insurance.
+<br><br>
+
+
+
+
+
+## Question 6
+Provide both ggplot code and comments to describe the relationship between `age` and `income`.
+
+
+*Answer*:
+```{r}
+ggplot(data = health_cust) + 
+  geom_boxplot(mapping = 
+                aes(x = income, 
+                    y = age))
+```
+#From the data above you are able to see that the average income is around $63,000. You can also see that people who are a little younger than 50 make up the average the most of $63,000.
+<br><br>
+
+
+
+
+## Question 7
+Provide both ggplot code and comments to describe the relationship between `age` and `health_ins`.
+
+*Answer*:
+```{r}
+ggplot(data = health_cust) +
+  geom_bar(mapping = 
+             aes(x = age,
+            fill = health_ins))
+```
+#With the visual shown above I can see that after the age of 75 it is rare to have health insurance. At the age of 23 is around the age where people begin to have health insurance. Way more people don't have health insurance, than do. 
+<br><br>
+
+
+
+
+## Question 8
+Provide both ggplot code and comments to describe the distribution between `marital_status` and `health_ins`.
+
+*Answer*:
+```{r}
+ggplot(data = health_cust) +
+  geom_bar(mapping = 
+             aes(x = marital_status,
+            fill = health_ins),
+           position = "dodge") 
+```
+#People who have never been married are more likely to have health insurance than those who have been divorced, married, or widowed. 
+<br><br>
+
+
+
+
+
+## Question 9
+Provide both ggplot code and comments to describe the distribution between `marital_status` and `housing_type`.
+
+*Answer*:
+```{r}
+ggplot(data = health_cust) +
+  geom_bar(mapping = 
+             aes(x = marital_status,
+            fill = housing_type),
+           position = "dodge") 
+```
+#People who are married are more likely to be a homeowner, whether it is free and clear or mortgage/loan, and have the highest for occupied with no rent. People who have never been married are more likely to be renting a place, and also have the highest NA.
+<br><br>
+
+
+

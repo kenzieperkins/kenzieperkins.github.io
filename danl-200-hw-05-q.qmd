@@ -1,0 +1,270 @@
+---
+title: Homework 5
+subtitle: Data Visualization and Data Transformation
+date: last-modified
+from: markdown+emoji
+comments: false
+code-fold: false
+
+execute: 
+  warning: false
+  message: false
+  fig-width: 9
+  fig-height: 7
+  fig-align: center
+---
+```{r}
+#| eval: true
+#| include: false
+
+library(tidyverse)
+library(skimr)
+```
+
+# Direction
+
+- Provide your answer to questions in **Homework 5** in the `danl-200-hw-05-q.qmd`.
+
+- Please submit your **Quarto document for Homework 5** to the Brightspace with the name below:
+
+  - `danl-200-hw5-LASTNAME-FIRSTNAME.qmd`\
+  ( e.g., `danl-200-hw5-choe-byeonghak.qmd` )
+
+- The due is May 9, 2024, 11:59 P.M.
+
+- Please send an email to Byeong-Hak (`bchoe@geneseo.edu`) if you have any questions or clarifications.
+
+<br><br><br>
+
+# Question 1
+
+For Question 1, run the following R command to read the CSV file, `spotify_all.csv` as data.frame, `spotify_all`:
+
+```{r}
+#| echo: true
+#| eval: true
+#| warning: false
+#| message: false
+spotify_all <- read_csv('https://bcdanl.github.io/data/spotify_all.csv')
+```
+
+```{r}
+#| echo: false
+#| eval: true
+rmarkdown::paged_table(spotify_all)
+```
+
+<br>
+
+The data.frame `spotify_all` includes information about Spotify users' playlists.
+
+  - The unit of observation in `spotify_all` is a track in a music playlist.
+
+<br>
+
+## Variable Description
+
+- `pid`: playlist ID; unique ID for playlist
+  
+- `playlist_name`: a name of playlist
+  
+- `pos`: a position of the track within a playlist (starting from 0)
+  
+- `artist_name`: name of the track's primary artist
+  
+- `track_name`: name of the track
+  
+- `duration_ms`: duration of the track in milliseconds
+  
+- `album_name`: name of the track's album
+
+<br>
+
+## Q1a
+
+- Find the ten most popular song.
+  - A value of a song is defined as a combination of a `artist_name` value and a `track_name` value. 
+  - Who are artists for those ten most popular song?
+
+*Answer:*
+```{r}
+
+```
+
+<br><br>
+
+## Q1b
+
+-   Find the five most popular artist in terms of the number of occurrences in the data.frame, `spotify_all`.
+-   What is the most popular song for each of the five most popular artist?
+
+
+*Answer:*
+```{r}
+
+```
+
+<br><br>
+
+
+## Q1c
+- Create a data.frame named `drake_one_dance` that includes all playlists featuring the song where `track_name` equals "One Dance" and `artist_name` equals "Drake".
+  - Ensure that the data.frame `drake_one_dance` does not contain any playlists where the song "One Dance" by Drake is absent.
+
+- What is the song with the highest frequency of appearances after Drake’s “One Dance” in the newly created data.frame, `drake_one_dance`?
+
+*Answer:*
+```{r}
+
+```
+
+<br><br>
+
+
+## Q1d
+
+Provide both (1) ggplot code and (2) a couple of sentences to describe the relationship between `pos` and the ten most popular artists.
+
+
+*Answer:*
+```{r}
+
+```
+
+<br><br>
+
+## Q1e
+Create the data.frame with `pid`-`artist` level of observations with the following four variables:
+
+-   `pid`: playlist id
+-   `playlist_name`: name of playlist
+-   `artist`: name of the track's primary artist, which appears only once within a playlist
+-   `n_artist`: number of occurrences of artist within a playlist
+
+
+*Answer:*
+```{r}
+
+```
+
+<br><br><br>
+
+# Question 2. Climate Finance
+
+- Climate finance refers to local, national or transnational financing—drawn from public, private and alternative sources of financing—that seeks to support mitigation and adaptation actions that will address climate change ([https://unfccc.int/topics/introduction-to-climate-finance](https://unfccc.int/topics/introduction-to-climate-finance)).
+
+  - Mitigation involves taking actions to reduce the emissions of greenhouse gases that are responsible for climate change.
+  - Adaptation involves taking actions to reduce the actual or expected damages from climate change ([https://climate.nasa.gov/solutions/adaptation-mitigation](https://climate.nasa.gov/solutions/adaptation-mitigation)).
+
+- Load the data.frame for Question 2.
+
+```{r}
+#| eval: true
+#| echo: true
+path <- 'https://bcdanl.github.io/data/climate_finance_energy.csv'
+climate_finance <- read_csv(path)
+```
+
+<br>
+
+```{r}
+#| echo: false
+#| eval: true
+#| results: asis
+rmarkdown::paged_table(climate_finance) 
+```
+
+<br>
+
+- A unit of observation in `climate_finance` data.frame is a climate change project.
+
+<br>
+
+## Variable Description
+
+- `Party`: a party (country) that provides a funding contribution to recipient country/region for their cliamte change project.
+
+- `Recipient country/region`:  Recipient country or region
+
+- `Project/programme/activity`:  Details in the climate change project
+
+- `Type of support`:  
+  - `adaptation` if the climate change project is related to adaptation project.
+  - `mitigation` if the climate change project is related to mitigation project.
+  
+- `Year`: Year that funding contribution is committed or provided.
+
+- `Contribution`: An amount of funding contribution for the climate change project (in USD).
+
+- `Status`: 
+  - `committed` if a party commits to providing the funding contribution for the climate change project, but the funding contribution is NOT actually provided.
+  - `provided` if the funding contribution was provided for the climate change project.
+  
+- `Energy`: 
+  - `TRUE` if the project is energy-related; 
+  - `FALSE` otherwise.
+
+
+## Q2a
+
+How many `parties` have provided positive financial `contributions` to other `countries/regions` for their `adaptation` projects for every year between 2011 and 2018?
+
+
+*Answer:*
+```{r}
+
+```
+
+<br><br>
+
+
+## Q2b
+
+Provide both (1) ggplot code and (2) a simple comment to describe how the yearly trend of total funding `Contribution` varies by `Energy` and `Status`.
+
+
+*Answer:*
+```{r}
+
+```
+
+<br><br>
+
+
+## Q2c
+
+For each `party`, calculate the total funding `contributions` that were `provided` for `mitigation` projects for each `year`.
+
+
+*Answer:*
+```{r}
+
+```
+
+<br><br>
+
+
+
+
+
+<br><br><br>
+
+# Question 3  
+
+## Q3a
+- Write and publish a blog post on your GitHub website, featuring data analysis based on the `spotify_all` data.frame in Question 1 in Homework 5.
+  - Ensure that the blog post has an appropriate thumbnail by including an image file in the blog post's directory with a proper YAML header option.
+  
+```{r}
+#| eval: false
+spotify_all <- read_csv('https://bcdanl.github.io/data/spotify_all.csv')
+```
+
+<br><br>
+
+
+## Q3b
+  - Ensure that the blog post assigned in Homework 4 has an appropriate thumbnail by including an image file in the blog post's directory with a proper YAML header option.
+  
+<br><br>
+

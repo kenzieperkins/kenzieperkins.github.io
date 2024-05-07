@@ -41,7 +41,7 @@ library(skimr)
 ## Question 0.
 Provide your GitHub username.
 
-*Answer*:
+*Answer*: kenzieperkins
 
 
 
@@ -53,6 +53,8 @@ base-R provides the R object `state.name`. Write an R code to assign `state.name
 
 *Answer*:
 ```{r}
+US_states <- state.name
+US_states
 
 ```
 
@@ -73,6 +75,8 @@ $$
 
 *Answer*:
 ```{r}
+temp_C <- (5/9) * (temp_F - 32) 
+temp_C
 
 ```
 
@@ -92,8 +96,11 @@ x <- 1:25
 
 *Answer*:
 ```{r}
-
-
+x <- 1:25
+sd_x <- sqrt(sum(( x - mean(x))^2) / (length(x) - 1))
+sd_x
+sd(x)
+sd_x == sd(x)
 ```
 
 <br><br>
@@ -104,6 +111,8 @@ x <- 1:25
 
 *Answer*:
 ```{r}
+pathname <- "https://bcdanl.github.io/data/mlb_teams.csv"
+MLB_teams <- read_csv(pathname)
 
 ```
 
@@ -115,7 +124,7 @@ Write an R code to provide summary statistics---mean, standard deviation, minimu
 
 *Answer*:
 ```{r}
-
+skim(MLB_teams)
 ```
 
 <br><br><br>
