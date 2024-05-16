@@ -1,5 +1,5 @@
 ---
-title: DANL Project
+title: NYC Housing Prices DANL Project
 subtitle: "Data-Driven Mastery: Unlocking Business Potential"
 author: 
   - Name Kenzie Perkins
@@ -47,44 +47,234 @@ theme_set(theme_ipsum()+
 
 About this project :clap:
 
-```{r}
-1 + 1
-```
+
+Our mission as AGKF Real Estate is to figure out housing prices in NYC within different neighborhoods, and boroughs. This is relevant because we need to find the cost of housing to be able to make it more affordable for those living in NYC. The prices of homes today are on the rise, because of the pandemic and inflation and it is our mission to make it so everyone in NYC can have affordable living. 
+
 
 
 # Data
 
-The data.frame `mpg` contains a subset of the fuel economy data that the EPA makes available on [https://fueleconomy.gov/](https://fueleconomy.gov/). It contains only models which had a new release every year between 1999 and 2008 - this was used as a proxy for the popularity of the car. :oncoming_automobile:
+The data.frame `nyc_housing_sales` contains a subset of the housing economy data which has data of housing sales within different boroughs and neighborhoods in New York City. You can access more information about the data.frame here:
+https://www.nyc.gov/site/finance/property/glossary-property-sales.page
+https://www.nyc.gov/assets/finance/jump/hlpbldgcode.html
 
 
-## Summary Statistics
 
-```{r}
-mpg <- ggplot2::mpg
-```
 
 ```{r}
 #| results: asis
 #| echo: false
-rmarkdown::paged_table(mpg) 
+rmarkdown::paged_table(nyc_housing_sales) 
 ```
 
 
 ```{r}
-skim(mpg) %>% 
+skim(nyc_housing_sales) %>% 
   select(-n_missing)
 ```
 
 
-## MPG and a Type of Cars
-The following boxplot shows how the distribution of highway MPG (`hwy`) varies by a type of cars (`class`) :blue_car: :truck: :minibus:.
+
+What is the average housing price for each borough in NYC? (ggplot) 
 
 
 ```{r}
-ggplot(data = mpg) +
-  geom_boxplot(aes(x = class, y = hwy, fill = class),
-               show.legend = F) +
-  labs(x = "Class", y = "Highway\nMPG") 
+
+average_prices <- nyc_housing_sales |>
+  group_by(borough) |>
+  summarize(average_price =
+              mean(sale_price, na.rm = TRUE))
+
+```
+
+```{r}
+
+ggplot(data = average_prices) + 
+  geom_col(mapping = 
+               aes(x = borough, 
+                   y = average_price),
+             alpha = .5) + 
+  facet_grid(borough ~ .)
+
+```
+
+What month was the most popular in Queens for housing sales? 
+
+```{r}
+install.packages("readr")
+install.packages("dplyr")
+library(readr)
+library(dplyr)
+```
+
+```{r}
+nyc_housing_sales <- read.csv("https://bcdanl.github.io/data/nyc_housing_sales_2006-2023.csv")
+
+most_popular_month <- nyc_housing_sales %>%
+  filter(borough == "Queens") %>%
+  group_by(month) %>%
+  summarize(total_sales = n()) %>%
+  arrange(desc(total_sales)) %>%
+  slice(1)
+
+most_popular_month$month
+```
+Answer: August
+
+Data Visualization 
+
+```{r}
+library(ggplot2)
+
+nyc_housing_sales <- read.csv("https://bcdanl.github.io/data/nyc_housing_sales_2006-2023.csv")
+
+most_popular_month <- nyc_housing_sales %>%
+  filter(borough == "Queens") %>%
+  group_by(month) %>%
+  summarize(total_sales = n()) %>%
+  arrange(desc(total_sales))
+
+all_months <- unique(nyc_housing_sales$month)
+
+all_months_sales <- merge(most_popular_month, data.frame(month = all_months), by = "month", all = TRUE)
+
+ggplot(all_months_sales, aes(x = month, y = ifelse(is.na(total_sales), 0, total_sales))) +
+  geom_bar(stat = "identity", fill = "blue") +
+  labs(title = "Monthly Housing Sales in Queens",
+       x = "Month",
+       y = "Total Sales")
+
+ggplot(all_months_sales, aes(x = month, y = ifelse(is.na(total_sales), 0, total_sales))) +
+  geom_bar(stat = "identity", fill = "blue") +
+  labs(title = "Monthly Housing Sales in Queens",
+       x = "Month",
+       y = "Total Sales") +
+  scale_x_discrete(labels = c("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"))
+```
+
+What is the average housing price for each neighborhood in the Queens borough?
+
+```{r}
+borough_name <- "Queens"
+borough_data <- nyc_housing_sales %>%
+  filter(borough == borough_name)
+
+neighborhood_avg_price <- borough_data %>%
+  group_by(neighborhood) %>%
+  summarize(avg_price = mean(sale_price))
+
+print(neighborhood_avg_price)
+
+```
+
+
+
+Is there any correlation between square footage and housing prices in different NYC boroughs? (ggplot) 
+
+```{r}
+
+
+cor_data <- nyc_housing_sales |>
+  filter(!is.na(gross_square_feet) & !is.na(sale_price)) |>
+           group_by(borough) |>
+                      summarize(corr = cor(gross_square_feet,
+                                           sale_price)) 
+
+```
+
+```{r}
+
+ggplot(cor_data, aes(x = borough, y = corr)) +
+  geom_col() +
+  labs(title = "Correlation: Square Footage vs Housing Prices",
+       x = "Borough",
+       y = "Correlation Coefficient") +
+  theme_minimal()
+
+
+```
+
+How many housing units were built in 1925?
+
+```{r}
+
+
+units_1925 <- nyc_housing_sales |>
+  filter(year_built == 1925) |>
+           summarize(total_units_1925 =
+                       sum(total_units, na.rm = TRUE))
+
+```
+
+
+Which zipcode in NYC has the most housing?
+
+```{r}
+nyc_housing_sales %>%
+  group_by(zip_code) %>%
+  count() %>%
+  arrange(desc(n))
+```
+
+Answer: 10312
+
+Data Visualization
+
+```{r}
+library(ggplot2)
+
+nyc_housing_sales %>%
+  group_by(zip_code) %>%
+  count() %>%
+  arrange(desc(n)) %>%
+  ggplot(aes(x = n, y = reorder(zip_code, n))) +
+  geom_bar(stat = "identity", fill = "blue") +
+  labs(title = "Number of Housing Units by Zipcode in NYC",
+       x = "Number of Housing Units",
+       y = "Zipcode")
+```
+
+
+What is the most expensive neighborhood to live in NYC?
+```{r}
+
+most_expensive_neighborhood <- nyc_housing_sales %>%
+  filter(sale_price == max(sale_price))
+
+most_expensive_neighborhood_name <- most_expensive_neighborhood$neighborhood[1]
+
+print(paste("The most expensive neighborhood in NYC is:", most_expensive_neighborhood_name))
+
+```
+
+What are the top 5 most expensive housing units in NYC? 
+
+```{r}
+
+top_5_expensive_units <- nyc_housing_sales[order(-nyc_housing_sales$sale_price), ][1:5, ]
+
+print(top_5_expensive_units)
+
+```
+
+Which borough has the most apartments? (ggplot)
+
+```{r}
+nyc_housing_sales %>%
+  filter(building_class_category == "09 COOPS - WALKUP APARTMENTS") %>%
+  group_by(borough) %>%
+  count() %>%
+  arrange(desc(n))
+```
+
+Answer: Manhattan
+
+Data Visualization - Bar Chart
+
+```{r}
+library(ggplot2)
+
+
 ```
 
 

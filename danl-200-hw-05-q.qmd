@@ -89,6 +89,10 @@ The data.frame `spotify_all` includes information about Spotify users' playlists
 *Answer:*
 ```{r}
 
+top_songs <- spotify_all |>
+  count(artist_name, track_name, sort = TRUE) |>
+  slice(1:10)
+
 ```
 
 <br><br>
@@ -102,7 +106,26 @@ The data.frame `spotify_all` includes information about Spotify users' playlists
 *Answer:*
 ```{r}
 
+top_artists <- spotify_all |>
+  count(artist_name, sort = TRUE) |>
+  slice(1:5)
+
+
 ```
+
+
+```{r}
+
+top_songs_by_artist <- spotify_all |>
+  filter(artist_name %in%
+  top_artists$artist_name) |>
+  count(artist_name, track_name, sort = TRUE) |>
+  group_by(artist_name) |>
+  slice(1)
+
+
+```
+
 
 <br><br>
 
@@ -116,7 +139,19 @@ The data.frame `spotify_all` includes information about Spotify users' playlists
 *Answer:*
 ```{r}
 
+drake_one_dance <- spotify_all |>
+  filter(track_name == "One Dance", artist_name == "Drake")
+
+
 ```
+
+```{r}
+highest_freq_song <- drake_one_dance |>
+  count(track_name, sort = TRUE) |>
+  filter(track_name != "One Dance") |>
+  slice(1) 
+```
+
 
 <br><br>
 
@@ -129,7 +164,11 @@ Provide both (1) ggplot code and (2) a couple of sentences to describe the relat
 *Answer:*
 ```{r}
 
+ggplot(top_artists, aes(x = reorder(artist_name, pos), y = pos)) +
+  geom_bar()
+
 ```
+#the relationship between artist name and position on a playlist is that the more popular the artist the higher the position is. 
 
 <br><br>
 
@@ -144,6 +183,11 @@ Create the data.frame with `pid`-`artist` level of observations with the followi
 
 *Answer:*
 ```{r}
+
+pid <- c(0 : 999998)
+playlist_name <- c("Throwbacks : ✝️")
+artist <- c (Missy Elliott : Caleb and Kelsey)
+n_artist <- c(0 : 10)
 
 ```
 
@@ -213,6 +257,14 @@ How many `parties` have provided positive financial `contributions` to other `co
 *Answer:*
 ```{r}
 
+positive_contributons <- climate_finance  |>
+  climate_finance$purpose == 'adaption'  |> 
+  climate_finance$year>= 2011  |>
+  climate_finance$year <= 2018
+
+party_counts <- aggregate(party ~ year, data = postive_contributions, FUN = function((x) length(unique(x)))
+
+
 ```
 
 <br><br>
@@ -226,6 +278,14 @@ Provide both (1) ggplot code and (2) a simple comment to describe how the yearly
 *Answer:*
 ```{r}
 
+
+yearly_trends <- (aggregate(contributon ~ year + energy + status, data = climate_fiance, FUN = sum)
+                  
+ggplot(yearly_trends, aes(x = year, y= contributions, fill = staues)) + 
+  geom_bar(stat = "identity", position =
+             "dodge") +
+  facet_wrap(. ~ energy)
+
 ```
 
 <br><br>
@@ -238,6 +298,12 @@ For each `party`, calculate the total funding `contributions` that were `provide
 
 *Answer:*
 ```{r}
+
+mitigation_projects <- climate_finance
+
+total_contributions <- 
+  aggregate(contributons ~ party + year, data = mitigation_projects, FUN = sum)
+
 
 ```
 

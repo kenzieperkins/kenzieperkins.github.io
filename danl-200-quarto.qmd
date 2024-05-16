@@ -588,3 +588,61 @@ nyc_housing_sales <- read_csv('https://bcdanl.github.io/data/nyc_housing_sales_2
 
 ```
 
+
+```{r}
+
+average_prices <- nyc_housing_sales |>
+  group_by(borough) |>
+  summarize(average_price =
+              mean(sale_price, na.rm = TRUE))
+
+```
+
+```{r}
+
+ggplot(data = average_prices) + 
+  geom_col(mapping = 
+               aes(x = borough, 
+                   y = average_price),
+             alpha = .5) + 
+  facet_grid(borough ~ .)
+
+```
+
+
+
+```{r}
+
+
+cor_data <- nyc_housing_sales |>
+  filter(!is.na(gross_square_feet) & !is.na(sale_price)) |>
+           group_by(borough) |>
+                      summarize(corr = cor(gross_square_feet,
+                                           sale_price)) 
+
+```
+
+
+```{r}
+
+ggplot(cor_data, aes(x = borough, y = corr)) +
+  geom_col() +
+  labs(title = "Correlation: Square Footage vs Housing Prices",
+       x = "Borough",
+       y = "Correlation Coefficient") +
+  theme_minimal()
+
+
+```
+
+
+```{r}
+
+
+units_1925 <- nyc_housing_sales |>
+  filter(year_built == 1925) |>
+           summarize(total_units_1925 =
+                       sum(total_units, na.rm = TRUE))
+
+```
+
