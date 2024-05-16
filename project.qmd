@@ -50,6 +50,9 @@ About this project :clap:
 
 Our mission as AGKF Real Estate is to figure out housing prices in NYC within different neighborhoods, and boroughs. This is relevant because we need to find the cost of housing to be able to make it more affordable for those living in NYC. The prices of homes today are on the rise, because of the pandemic and inflation and it is our mission to make it so everyone in NYC can have affordable living. 
 
+```{r}
+nyc_housing_sales <- read_csv("https://bcdanl.github.io/data/nyc_housing_sales_2006-2023.csv")
+```
 
 
 # Data
@@ -57,21 +60,6 @@ Our mission as AGKF Real Estate is to figure out housing prices in NYC within di
 The data.frame `nyc_housing_sales` contains a subset of the housing economy data which has data of housing sales within different boroughs and neighborhoods in New York City. You can access more information about the data.frame here:
 https://www.nyc.gov/site/finance/property/glossary-property-sales.page
 https://www.nyc.gov/assets/finance/jump/hlpbldgcode.html
-
-
-
-
-```{r}
-#| results: asis
-#| echo: false
-rmarkdown::paged_table(nyc_housing_sales) 
-```
-
-
-```{r}
-skim(nyc_housing_sales) %>% 
-  select(-n_missing)
-```
 
 
 
